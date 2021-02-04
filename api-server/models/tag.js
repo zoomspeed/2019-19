@@ -9,7 +9,7 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.INTEGER,
       },
       fk_video_id: {
-        type: DataTypes.INTEGER,
+        type: DataTypes.STRING,
         allowNull: false,
       },
       name: {
@@ -34,6 +34,10 @@ module.exports = (sequelize, DataTypes) => {
       fk_video_id,
       name,
     });
+  };
+  Tag.getAllTagsAboutVideo = async videoId => {
+    const data = await Tag.findAll({ where: { fk_video_id: videoId } });
+    return data;
   };
   return Tag;
 };

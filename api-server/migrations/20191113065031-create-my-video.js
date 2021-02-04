@@ -1,6 +1,6 @@
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('myVideos', {
+    return queryInterface.createTable('Myvideos', {
       my_video_id: {
         allowNull: true,
         type: Sequelize.INTEGER,
@@ -8,7 +8,7 @@ module.exports = {
         primaryKey: true,
       },
       fk_user_id: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.STRING,
         allowNull: false,
         references: {
           model: 'users',
@@ -18,7 +18,7 @@ module.exports = {
         onDelete: 'cascade',
       },
       fk_video_id: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.STRING,
         allowNull: false,
         references: {
           model: 'videos',
@@ -30,6 +30,6 @@ module.exports = {
     });
   },
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('myVideos');
+    return queryInterface.dropTable('Myvideos');
   },
 };

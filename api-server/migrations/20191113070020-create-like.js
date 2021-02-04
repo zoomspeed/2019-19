@@ -8,7 +8,7 @@ module.exports = {
         primaryKey: true,
       },
       fk_user_id: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.STRING,
         allowNull: false,
         references: {
           model: 'users',
@@ -18,7 +18,7 @@ module.exports = {
         onDelete: 'cascade',
       },
       fk_video_id: {
-        type: Sequelize.INTEGER,
+        type: Sequelize.STRING,
         allowNull: false,
         references: {
           model: 'videos',

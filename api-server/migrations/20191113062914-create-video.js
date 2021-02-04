@@ -2,10 +2,14 @@ module.exports = {
   up: (queryInterface, Sequelize) => {
     return queryInterface.createTable('videos', {
       video_id: {
-        allowNull: true,
-        autoIncrement: true,
+        allowNull: false,
         primaryKey: true,
+        type: Sequelize.STRING,
+      },
+      index: {
         type: Sequelize.INTEGER,
+        allowNull: false,
+        autoIncrement: true,
       },
       name: {
         type: Sequelize.STRING,
@@ -22,12 +26,18 @@ module.exports = {
         type: Sequelize.DATE,
         defaultValue: Sequelize.NOW,
       },
-      url: {
+      thumbnail_img_url: {
+        type: Sequelize.STRING,
+      },
+      thumbnail_video_url: {
+        type: Sequelize.STRING,
+      },
+      streaming_url: {
         type: Sequelize.STRING,
       },
     });
   },
-  down: (queryInterface, Sequelize) => {
+  down: queryInterface => {
     return queryInterface.dropTable('videos');
   },
 };
